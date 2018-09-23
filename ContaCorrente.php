@@ -75,7 +75,7 @@ class ContaCorrente {
     }
     
     public function fecharConta(){
-        if($this->getStatus() == true){            
+        if($this->getStatus()){            
             if($this->getSaldo() == 0){            
                 $this->setStatus(false);
                 echo "<b>SUCESSO!</b> Nenhum valor foi encontrado na conta e o encerramento foi concluído.<br>";
@@ -88,7 +88,7 @@ class ContaCorrente {
     }
     
     public function depositar($qtd){
-        if($this->getStatus() == true){
+        if($this->getStatus()){
             if($qtd > 0){
                 $this->setSaldo($this->saldo + $qtd);
                 echo "Deposito no valor de R$".$qtd." realizado com sucesso!<br>";
@@ -101,7 +101,7 @@ class ContaCorrente {
     }
     
     public function sacar($qtd){
-        if($this->getStatus() == true){
+        if($this->getStatus()){
             if($qtd == 0){
              echo "Impossivel sacar o valor de R$".$qtd.", tente sacar um valor maior.<br>";
             }else if($this->getSaldo() >= $qtd){
@@ -124,7 +124,7 @@ class ContaCorrente {
             $valor = 20;
         }
         
-        if($this->getStatus() == true){
+        if($this->getStatus()){
             if($this->getSaldo() > $valor){
                 $this->setSaldo($this->getSaldo() - $valor);
             }else{
@@ -142,7 +142,7 @@ class ContaCorrente {
                 $stsEscrito = "Conta aberta";
             break;            
             case false:
-                $stsEscrito = "Conta fechada";
+                $stsEscrito = "Conta encerrada";
             break;
         }
         return $stsEscrito;
