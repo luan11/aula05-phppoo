@@ -93,7 +93,7 @@ class ContaCorrente {
                 $this->setSaldo($this->saldo + $qtd);
                 echo "Deposito no valor de R$".$qtd." realizado com sucesso!<br>";
             }else{
-                echo "Impossivel depositar o valor de R$".$qtd." na conta, tente um valor depositar um valor maior.<br>";
+                echo "Impossivel depositar o valor de R$".$qtd." na conta, tente depositar um valor maior.<br>";
             }
         }else{
             echo "Impossível realizar o deposito em uma conta encerrada.<br>";
