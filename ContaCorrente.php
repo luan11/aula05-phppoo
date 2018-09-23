@@ -87,13 +87,22 @@ class ContaCorrente {
         }
     }
     
+    public function reabrirConta(){
+        if(!$this->getStatus()){
+            $this->setStatus(true);
+            echo "Conta reativada com sucesso! (Saldo: R$ ".$this->getSaldo().")<br>";
+        }else{
+            echo "Esta conta ainda está ativa.<br>";
+        }
+    }
+
     public function depositar($qtd){
         if($this->getStatus()){
             if($qtd > 0){
                 $this->setSaldo($this->saldo + $qtd);
                 echo "Deposito no valor de R$".$qtd." realizado com sucesso!<br>";
             }else{
-                echo "Impossivel depositar o valor de R$".$qtd." na conta, tente depositar um valor maior.<br>";
+                echo "Impossivel depositar o valor de R$ ".$qtd." na conta, tente depositar um valor maior.<br>";
             }
         }else{
             echo "Impossível realizar o deposito em uma conta encerrada.<br>";
@@ -103,7 +112,7 @@ class ContaCorrente {
     public function sacar($qtd){
         if($this->getStatus()){
             if($qtd == 0){
-             echo "Impossivel sacar o valor de R$".$qtd.", tente sacar um valor maior.<br>";
+             echo "Impossivel sacar o valor de R$ ".$qtd.", tente sacar um valor maior.<br>";
             }else if($this->getSaldo() >= $qtd){
                 $this->setSaldo($this->getSaldo() - $qtd);
                 echo "Saque no valor de R$".$qtd." realizado com sucesso!<br>";

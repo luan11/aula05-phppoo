@@ -15,6 +15,7 @@ and open the template in the editor.
             
             $cliente_Adenor = new ContaCorrente();
             $cliente_Adenor->abrirConta("0123456-7", "CC", "Adenor Ribeiro Silva");
+            
         ?>
         <p><b>Número da conta: </b><?= $cliente_Adenor->getNumConta(); ?></p>
         <p><b>Tipo da conta: </b><?= $cliente_Adenor->getTipo(); ?></p>
